@@ -1,0 +1,786 @@
+Threat Modeling Report
+Created on 10/5/2021 12:08:53 PM
+
+Threat Model Name: LANX - e-laundry web application
+
+Owner: Bobola Ayo-Fanibe
+
+Reviewer:
+
+Contributors:
+
+Description: Threat modelling report for LANX
+
+Assumptions:
+
+External Dependencies:
+
+Threat Model Summary:
+Not Started	168
+Not Applicable	0
+Needs Investigation	0
+Mitigation Implemented	0
+Total	168
+Total Migrated	0
+
+Diagram: LMS
+LMS diagram screenshot
+LMS Diagram Summary:
+Not Started	168
+Not Applicable	0
+Needs Investigation	0
+Mitigation Implemented	0
+Total	168
+Total Migrated	0
+Interaction: Check for login credentials.
+Check for login credentials. interaction screenshot
+1. Spoofing of Destination Data Store users_db  [State: Not Started]  [Priority: High] 
+Category:	Spoofing
+Description:	users_db may be spoofed by an attacker and this may lead to data being written to the attacker's target instead of users_db. Consider using a standard authentication mechanism to identify the destination data store.
+Justification:	<no mitigation provided>
+2. Potential SQL Injection Vulnerability for users_db  [State: Not Started]  [Priority: High] 
+Category:	Tampering
+Description:	SQL injection is an attack in which malicious code is inserted into strings that are later passed to an instance of SQL Server for parsing and execution. Any procedure that constructs SQL statements should be reviewed for injection vulnerabilities because SQL Server will execute all syntactically valid queries that it receives. Even parameterized data can be manipulated by a skilled and determined attacker.
+Justification:	<no mitigation provided>
+3. Weak Credential Storage  [State: Not Started]  [Priority: High] 
+Category:	Information Disclosure
+Description:	Credentials held at the server are often disclosed or tampered with and credentials stored on the client are often stolen. For server side, consider storing a salted hash of the credentials instead of storing the credentials themselves. If this is not possible due to business requirements, be sure to encrypt the credentials before storage, using an SDL-approved mechanism. For client side, if storing credentials is required, encrypt them and protect the data store in which they're stored
+Justification:	<no mitigation provided>
+4. Potential Excessive Resource Consumption for Sign-In or users_db  [State: Not Started]  [Priority: High] 
+Category:	Denial Of Service
+Description:	Does Sign-In or users_db take explicit steps to control resource consumption? Resource consumption attacks can be hard to deal with, and there are times that it makes sense to let the OS do the job. Be careful that your resource requests don't deadlock, and that they do timeout.
+Justification:	<no mitigation provided>
+5. The users_db Data Store Could Be Corrupted  [State: Not Started]  [Priority: High] 
+Category:	Tampering
+Description:	Data flowing across Check for login credentials. may be tampered with by an attacker. This may lead to corruption of users_db. Ensure the integrity of the data flow to the data store.
+Justification:	<no mitigation provided>
+6. Data Store Denies users_db Potentially Writing Data  [State: Not Started]  [Priority: High] 
+Category:	Repudiation
+Description:	users_db claims that it did not write data received from an entity on the other side of the trust boundary. Consider using logging or auditing to record the source, time, and summary of the received data.
+Justification:	<no mitigation provided>
+7. Data Flow Sniffing  [State: Not Started]  [Priority: High] 
+Category:	Information Disclosure
+Description:	Data flowing across Check for login credentials. may be sniffed by an attacker. Depending on what type of data an attacker can read, it may be used to attack other parts of the system or simply be a disclosure of information leading to compliance violations. Consider encrypting the data flow.
+Justification:	<no mitigation provided>
+8. Data Flow Check for login credentials. Is Potentially Interrupted  [State: Not Started]  [Priority: High] 
+Category:	Denial Of Service
+Description:	An external agent interrupts data flowing across a trust boundary in either direction.
+Justification:	<no mitigation provided>
+9. Data Store Inaccessible  [State: Not Started]  [Priority: High] 
+Category:	Denial Of Service
+Description:	An external agent prevents access to a data store on the other side of the trust boundary.
+Justification:	<no mitigation provided>
+
+Interaction: Check for User Registration
+Check for User Registration interaction screenshot
+10. Spoofing of Destination Data Store users_db  [State: Not Started]  [Priority: High] 
+Category:	Spoofing
+Description:	users_db may be spoofed by an attacker and this may lead to data being written to the attacker's target instead of users_db. Consider using a standard authentication mechanism to identify the destination data store.
+Justification:	<no mitigation provided>
+11. Potential SQL Injection Vulnerability for users_db  [State: Not Started]  [Priority: High] 
+Category:	Tampering
+Description:	SQL injection is an attack in which malicious code is inserted into strings that are later passed to an instance of SQL Server for parsing and execution. Any procedure that constructs SQL statements should be reviewed for injection vulnerabilities because SQL Server will execute all syntactically valid queries that it receives. Even parameterized data can be manipulated by a skilled and determined attacker.
+Justification:	<no mitigation provided>
+12. Weak Credential Storage  [State: Not Started]  [Priority: High] 
+Category:	Information Disclosure
+Description:	Credentials held at the server are often disclosed or tampered with and credentials stored on the client are often stolen. For server side, consider storing a salted hash of the credentials instead of storing the credentials themselves. If this is not possible due to business requirements, be sure to encrypt the credentials before storage, using an SDL-approved mechanism. For client side, if storing credentials is required, encrypt them and protect the data store in which they're stored
+Justification:	<no mitigation provided>
+13. Potential Excessive Resource Consumption for Register or users_db  [State: Not Started]  [Priority: High] 
+Category:	Denial Of Service
+Description:	Does Register or users_db take explicit steps to control resource consumption? Resource consumption attacks can be hard to deal with, and there are times that it makes sense to let the OS do the job. Be careful that your resource requests don't deadlock, and that they do timeout.
+Justification:	<no mitigation provided>
+14. Spoofing the Register Process  [State: Not Started]  [Priority: High] 
+Category:	Spoofing
+Description:	Register may be spoofed by an attacker and this may lead to unauthorized access to users_db. Consider using a standard authentication mechanism to identify the source process.
+Justification:	<no mitigation provided>
+15. The users_db Data Store Could Be Corrupted  [State: Not Started]  [Priority: High] 
+Category:	Tampering
+Description:	Data flowing across Check for User Registration may be tampered with by an attacker. This may lead to corruption of users_db. Ensure the integrity of the data flow to the data store.
+Justification:	<no mitigation provided>
+16. Data Store Denies users_db Potentially Writing Data  [State: Not Started]  [Priority: High] 
+Category:	Repudiation
+Description:	users_db claims that it did not write data received from an entity on the other side of the trust boundary. Consider using logging or auditing to record the source, time, and summary of the received data.
+Justification:	<no mitigation provided>
+17. Data Flow Sniffing  [State: Not Started]  [Priority: High] 
+Category:	Information Disclosure
+Description:	Data flowing across Check for User Registration may be sniffed by an attacker. Depending on what type of data an attacker can read, it may be used to attack other parts of the system or simply be a disclosure of information leading to compliance violations. Consider encrypting the data flow.
+Justification:	<no mitigation provided>
+18. Data Flow Check for User Registration Is Potentially Interrupted  [State: Not Started]  [Priority: High] 
+Category:	Denial Of Service
+Description:	An external agent interrupts data flowing across a trust boundary in either direction.
+Justification:	<no mitigation provided>
+19. Data Store Inaccessible  [State: Not Started]  [Priority: High] 
+Category:	Denial Of Service
+Description:	An external agent prevents access to a data store on the other side of the trust boundary.
+Justification:	<no mitigation provided>
+
+Interaction: Check for users orders
+Check for users orders interaction screenshot
+20. Authenticated Data Flow Compromised  [State: Not Started]  [Priority: High] 
+Category:	Tampering
+Description:	An attacker can read or modify data transmitted over an authenticated dataflow.
+Justification:	<no mitigation provided>
+21. Elevation Using Impersonation  [State: Not Started]  [Priority: High] 
+Category:	Elevation Of Privilege
+Description:	Place Laundry order may be able to impersonate the context of Web Server daztabase communictation in order to gain additional privilege.
+Justification:	<no mitigation provided>
+
+Interaction: Check user info in database
+Check user info in database interaction screenshot
+22. Spoofing of Destination Data Store users_db  [State: Not Started]  [Priority: High] 
+Category:	Spoofing
+Description:	users_db may be spoofed by an attacker and this may lead to data being written to the attacker's target instead of users_db. Consider using a standard authentication mechanism to identify the destination data store.
+Justification:	<no mitigation provided>
+23. Potential SQL Injection Vulnerability for users_db  [State: Not Started]  [Priority: High] 
+Category:	Tampering
+Description:	SQL injection is an attack in which malicious code is inserted into strings that are later passed to an instance of SQL Server for parsing and execution. Any procedure that constructs SQL statements should be reviewed for injection vulnerabilities because SQL Server will execute all syntactically valid queries that it receives. Even parameterized data can be manipulated by a skilled and determined attacker.
+Justification:	<no mitigation provided>
+24. Weak Credential Storage  [State: Not Started]  [Priority: High] 
+Category:	Information Disclosure
+Description:	Credentials held at the server are often disclosed or tampered with and credentials stored on the client are often stolen. For server side, consider storing a salted hash of the credentials instead of storing the credentials themselves. If this is not possible due to business requirements, be sure to encrypt the credentials before storage, using an SDL-approved mechanism. For client side, if storing credentials is required, encrypt them and protect the data store in which they're stored
+Justification:	<no mitigation provided>
+25. Potential Excessive Resource Consumption for Place Laundry order or users_db  [State: Not Started]  [Priority: High] 
+Category:	Denial Of Service
+Description:	Does Place Laundry order or users_db take explicit steps to control resource consumption? Resource consumption attacks can be hard to deal with, and there are times that it makes sense to let the OS do the job. Be careful that your resource requests don't deadlock, and that they do timeout.
+Justification:	<no mitigation provided>
+26. Spoofing the Place Laundry order Process  [State: Not Started]  [Priority: High] 
+Category:	Spoofing
+Description:	Place Laundry order may be spoofed by an attacker and this may lead to unauthorized access to users_db. Consider using a standard authentication mechanism to identify the source process.
+Justification:	<no mitigation provided>
+27. The users_db Data Store Could Be Corrupted  [State: Not Started]  [Priority: High] 
+Category:	Tampering
+Description:	Data flowing across Check user info in database may be tampered with by an attacker. This may lead to corruption of users_db. Ensure the integrity of the data flow to the data store.
+Justification:	<no mitigation provided>
+28. Data Store Denies users_db Potentially Writing Data  [State: Not Started]  [Priority: High] 
+Category:	Repudiation
+Description:	users_db claims that it did not write data received from an entity on the other side of the trust boundary. Consider using logging or auditing to record the source, time, and summary of the received data.
+Justification:	<no mitigation provided>
+29. Data Flow Sniffing  [State: Not Started]  [Priority: High] 
+Category:	Information Disclosure
+Description:	Data flowing across Check user info in database may be sniffed by an attacker. Depending on what type of data an attacker can read, it may be used to attack other parts of the system or simply be a disclosure of information leading to compliance violations. Consider encrypting the data flow.
+Justification:	<no mitigation provided>
+30. Data Flow Check user info in database Is Potentially Interrupted  [State: Not Started]  [Priority: High] 
+Category:	Denial Of Service
+Description:	An external agent interrupts data flowing across a trust boundary in either direction.
+Justification:	<no mitigation provided>
+31. Data Store Inaccessible  [State: Not Started]  [Priority: High] 
+Category:	Denial Of Service
+Description:	An external agent prevents access to a data store on the other side of the trust boundary.
+Justification:	<no mitigation provided>
+
+Interaction: create and log unique user order
+create and log unique user order interaction screenshot
+32. Spoofing of Source Data Store users_db  [State: Not Started]  [Priority: High] 
+Category:	Spoofing
+Description:	users_db may be spoofed by an attacker and this may lead to incorrect data delivered to OrderService_db. Consider using a standard authentication mechanism to identify the source data store.
+Justification:	<no mitigation provided>
+33. Spoofing of Destination Data Store OrderService_db  [State: Not Started]  [Priority: High] 
+Category:	Spoofing
+Description:	OrderService_db may be spoofed by an attacker and this may lead to data being written to the attacker's target instead of OrderService_db. Consider using a standard authentication mechanism to identify the destination data store.
+Justification:	<no mitigation provided>
+34. Data Store Denies OrderService_db Potentially Writing Data  [State: Not Started]  [Priority: High] 
+Category:	Repudiation
+Description:	OrderService_db claims that it did not write data received from an entity on the other side of the trust boundary. Consider using logging or auditing to record the source, time, and summary of the received data.
+Justification:	<no mitigation provided>
+35. Data Flow create and log unique user order Is Potentially Interrupted  [State: Not Started]  [Priority: High] 
+Category:	Denial Of Service
+Description:	An external agent interrupts data flowing across a trust boundary in either direction.
+Justification:	<no mitigation provided>
+36. Data Store Inaccessible  [State: Not Started]  [Priority: High] 
+Category:	Denial Of Service
+Description:	An external agent prevents access to a data store on the other side of the trust boundary.
+Justification:	<no mitigation provided>
+
+Interaction: create and log unique user order
+create and log unique user order interaction screenshot
+37. Spoofing of Source Data Store users_db  [State: Not Started]  [Priority: High] 
+Category:	Spoofing
+Description:	users_db may be spoofed by an attacker and this may lead to incorrect data delivered to OrderService_db. Consider using a standard authentication mechanism to identify the source data store.
+Justification:	<no mitigation provided>
+38. Spoofing of Destination Data Store OrderService_db  [State: Not Started]  [Priority: High] 
+Category:	Spoofing
+Description:	OrderService_db may be spoofed by an attacker and this may lead to data being written to the attacker's target instead of OrderService_db. Consider using a standard authentication mechanism to identify the destination data store.
+Justification:	<no mitigation provided>
+39. Data Store Denies OrderService_db Potentially Writing Data  [State: Not Started]  [Priority: High] 
+Category:	Repudiation
+Description:	OrderService_db claims that it did not write data received from an entity on the other side of the trust boundary. Consider using logging or auditing to record the source, time, and summary of the received data.
+Justification:	<no mitigation provided>
+40. Data Flow create and log unique user order Is Potentially Interrupted  [State: Not Started]  [Priority: High] 
+Category:	Denial Of Service
+Description:	An external agent interrupts data flowing across a trust boundary in either direction.
+Justification:	<no mitigation provided>
+41. Data Store Inaccessible  [State: Not Started]  [Priority: High] 
+Category:	Denial Of Service
+Description:	An external agent prevents access to a data store on the other side of the trust boundary.
+Justification:	<no mitigation provided>
+
+Interaction: HTTPS
+HTTPS interaction screenshot
+42. Elevation Using Impersonation  [State: Not Started]  [Priority: High] 
+Category:	Elevation Of Privilege
+Description:	Sign-In may be able to impersonate the context of Register in order to gain additional privilege.
+Justification:	<no mitigation provided>
+
+Interaction: HTTPS
+HTTPS interaction screenshot
+43. Persistent Cross Site Scripting  [State: Not Started]  [Priority: High] 
+Category:	Tampering
+Description:	The web server 'Web Server daztabase communictation' could be a subject to a persistent cross-site scripting attack because it does not sanitize data store 'OrderService_db' inputs and output.
+Justification:	<no mitigation provided>
+44. Cross Site Scripting  [State: Not Started]  [Priority: High] 
+Category:	Tampering
+Description:	The web server 'Web Server daztabase communictation' could be a subject to a cross-site scripting attack because it does not sanitize untrusted input.
+Justification:	<no mitigation provided>
+45. Spoofing of Source Data Store OrderService_db  [State: Not Started]  [Priority: High] 
+Category:	Spoofing
+Description:	OrderService_db may be spoofed by an attacker and this may lead to incorrect data delivered to Web Server daztabase communictation. Consider using a standard authentication mechanism to identify the source data store.
+Justification:	<no mitigation provided>
+46. Weak Access Control for a Resource  [State: Not Started]  [Priority: High] 
+Category:	Information Disclosure
+Description:	Improper data protection of OrderService_db can allow an attacker to read information not intended for disclosure. Review authorization settings.
+Justification:	<no mitigation provided>
+47. Potential Data Repudiation by Web Server daztabase communictation  [State: Not Started]  [Priority: High] 
+Category:	Repudiation
+Description:	Web Server daztabase communictation claims that it did not receive data from a source outside the trust boundary. Consider using logging or auditing to record the source, time, and summary of the received data.
+Justification:	<no mitigation provided>
+48. Potential Process Crash or Stop for Web Server daztabase communictation  [State: Not Started]  [Priority: High] 
+Category:	Denial Of Service
+Description:	Web Server daztabase communictation crashes, halts, stops or runs slowly; in all cases violating an availability metric.
+Justification:	<no mitigation provided>
+49. Data Flow HTTPS Is Potentially Interrupted  [State: Not Started]  [Priority: High] 
+Category:	Denial Of Service
+Description:	An external agent interrupts data flowing across a trust boundary in either direction.
+Justification:	<no mitigation provided>
+50. Data Store Inaccessible  [State: Not Started]  [Priority: High] 
+Category:	Denial Of Service
+Description:	An external agent prevents access to a data store on the other side of the trust boundary.
+Justification:	<no mitigation provided>
+51. Web Server daztabase communictation May be Subject to Elevation of Privilege Using Remote Code Execution  [State: Not Started]  [Priority: High] 
+Category:	Elevation Of Privilege
+Description:	OrderService_db may be able to remotely execute code for Web Server daztabase communictation.
+Justification:	<no mitigation provided>
+52. Elevation by Changing the Execution Flow in Web Server daztabase communictation  [State: Not Started]  [Priority: High] 
+Category:	Elevation Of Privilege
+Description:	An attacker may pass data into Web Server daztabase communictation in order to change the flow of program execution within Web Server daztabase communictation to the attacker's choosing.
+Justification:	<no mitigation provided>
+
+Interaction: HTTPS
+HTTPS interaction screenshot
+53. Weak Authentication Scheme  [State: Not Started]  [Priority: High] 
+Category:	Information Disclosure
+Description:	Custom authentication schemes are susceptible to common weaknesses such as weak credential change management, credential equivalence, easily guessable credentials, null credentials, downgrade authentication or a weak credential change management system. Consider the impact and potential mitigations for your custom authentication scheme.
+Justification:	<no mitigation provided>
+54. Elevation Using Impersonation  [State: Not Started]  [Priority: High] 
+Category:	Elevation Of Privilege
+Description:	Place Laundry order may be able to impersonate the context of Sign-In in order to gain additional privilege.
+Justification:	<no mitigation provided>
+
+Interaction: HTTPS
+HTTPS interaction screenshot
+55. Spoofing of Source Data Store OrderService_db  [State: Not Started]  [Priority: High] 
+Category:	Spoofing
+Description:	OrderService_db may be spoofed by an attacker and this may lead to incorrect data delivered to Web Server daztabase communictation. Consider using a standard authentication mechanism to identify the source data store.
+Justification:	<no mitigation provided>
+56. Cross Site Scripting  [State: Not Started]  [Priority: High] 
+Category:	Tampering
+Description:	The web server 'Web Server daztabase communictation' could be a subject to a cross-site scripting attack because it does not sanitize untrusted input.
+Justification:	<no mitigation provided>
+57. Persistent Cross Site Scripting  [State: Not Started]  [Priority: High] 
+Category:	Tampering
+Description:	The web server 'Web Server daztabase communictation' could be a subject to a persistent cross-site scripting attack because it does not sanitize data store 'OrderService_db' inputs and output.
+Justification:	<no mitigation provided>
+58. Weak Access Control for a Resource  [State: Not Started]  [Priority: High] 
+Category:	Information Disclosure
+Description:	Improper data protection of OrderService_db can allow an attacker to read information not intended for disclosure. Review authorization settings.
+Justification:	<no mitigation provided>
+
+Interaction: HTTPS
+HTTPS interaction screenshot
+59. Elevation Using Impersonation  [State: Not Started]  [Priority: High] 
+Category:	Elevation Of Privilege
+Description:	resetPassword may be able to impersonate the context of Sign-In in order to gain additional privilege.
+Justification:	<no mitigation provided>
+60. Weak Authentication Scheme  [State: Not Started]  [Priority: High] 
+Category:	Information Disclosure
+Description:	Custom authentication schemes are susceptible to common weaknesses such as weak credential change management, credential equivalence, easily guessable credentials, null credentials, downgrade authentication or a weak credential change management system. Consider the impact and potential mitigations for your custom authentication scheme.
+Justification:	<no mitigation provided>
+
+Interaction: HTTPS
+HTTPS interaction screenshot
+61. Replay Attacks  [State: Not Started]  [Priority: High] 
+Category:	Tampering
+Description:	Packets or messages without sequence numbers or timestamps can be captured and replayed in a wide variety of ways. Implement or utilize an existing communication protocol that supports anti-replay techniques (investigate sequence numbers before timers) and strong integrity.
+Justification:	<no mitigation provided>
+62. Collision Attacks  [State: Not Started]  [Priority: High] 
+Category:	Tampering
+Description:	Attackers who can send a series of packets or messages may be able to overlap data. For example, packet 1 may be 100 bytes starting at offset 0. Packet 2 may be 100 bytes starting at offset 25. Packet 2 will overwrite 75 bytes of packet 1. Ensure you reassemble data before filtering it, and ensure you explicitly handle these sorts of cases.
+Justification:	<no mitigation provided>
+63. Weak Authentication Scheme  [State: Not Started]  [Priority: High] 
+Category:	Information Disclosure
+Description:	Custom authentication schemes are susceptible to common weaknesses such as weak credential change management, credential equivalence, easily guessable credentials, null credentials, downgrade authentication or a weak credential change management system. Consider the impact and potential mitigations for your custom authentication scheme.
+Justification:	<no mitigation provided>
+64. Elevation Using Impersonation  [State: Not Started]  [Priority: High] 
+Category:	Elevation Of Privilege
+Description:	Sign-In may be able to impersonate the context of resetPassword in order to gain additional privilege.
+Justification:	<no mitigation provided>
+
+Interaction: password_reset request
+password_reset request interaction screenshot
+65. Spoofing the USER External Entity  [State: Not Started]  [Priority: High] 
+Category:	Spoofing
+Description:	USER may be spoofed by an attacker and this may lead to unauthorized access to resetPassword. Consider using a standard authentication mechanism to identify the external entity.
+Justification:	<no mitigation provided>
+66. Elevation Using Impersonation  [State: Not Started]  [Priority: High] 
+Category:	Elevation Of Privilege
+Description:	resetPassword may be able to impersonate the context of USER in order to gain additional privilege.
+Justification:	<no mitigation provided>
+67. Spoofing the resetPassword Process  [State: Not Started]  [Priority: High] 
+Category:	Spoofing
+Description:	resetPassword may be spoofed by an attacker and this may lead to information disclosure by USER. Consider using a standard authentication mechanism to identify the destination process.
+Justification:	<no mitigation provided>
+68. Potential Lack of Input Validation for resetPassword  [State: Not Started]  [Priority: High] 
+Category:	Tampering
+Description:	Data flowing across password_reset request may be tampered with by an attacker. This may lead to a denial of service attack against resetPassword or an elevation of privilege attack against resetPassword or an information disclosure by resetPassword. Failure to verify that input is as expected is a root cause of a very large number of exploitable issues. Consider all paths and the way they handle data. Verify that all input is verified for correctness using an approved list input validation approach.
+Justification:	<no mitigation provided>
+69. Potential Data Repudiation by resetPassword  [State: Not Started]  [Priority: High] 
+Category:	Repudiation
+Description:	resetPassword claims that it did not receive data from a source outside the trust boundary. Consider using logging or auditing to record the source, time, and summary of the received data.
+Justification:	<no mitigation provided>
+70. Data Flow Sniffing  [State: Not Started]  [Priority: High] 
+Category:	Information Disclosure
+Description:	Data flowing across password_reset request may be sniffed by an attacker. Depending on what type of data an attacker can read, it may be used to attack other parts of the system or simply be a disclosure of information leading to compliance violations. Consider encrypting the data flow.
+Justification:	<no mitigation provided>
+71. Potential Process Crash or Stop for resetPassword  [State: Not Started]  [Priority: High] 
+Category:	Denial Of Service
+Description:	resetPassword crashes, halts, stops or runs slowly; in all cases violating an availability metric.
+Justification:	<no mitigation provided>
+72. Data Flow password_reset request Is Potentially Interrupted  [State: Not Started]  [Priority: High] 
+Category:	Denial Of Service
+Description:	An external agent interrupts data flowing across a trust boundary in either direction.
+Justification:	<no mitigation provided>
+73. resetPassword May be Subject to Elevation of Privilege Using Remote Code Execution  [State: Not Started]  [Priority: High] 
+Category:	Elevation Of Privilege
+Description:	USER may be able to remotely execute code for resetPassword.
+Justification:	<no mitigation provided>
+74. Elevation by Changing the Execution Flow in resetPassword  [State: Not Started]  [Priority: High] 
+Category:	Elevation Of Privilege
+Description:	An attacker may pass data into resetPassword in order to change the flow of program execution within resetPassword to the attacker's choosing.
+Justification:	<no mitigation provided>
+75. Cross Site Request Forgery  [State: Not Started]  [Priority: High] 
+Category:	Elevation Of Privilege
+Description:	Cross-site request forgery (CSRF or XSRF) is a type of attack in which an attacker forces a user's browser to make a forged request to a vulnerable site by exploiting an existing trust relationship between the browser and the vulnerable web site.  In a simple scenario, a user is logged in to web site A using a cookie as a credential.  The other browses to web site B.  Web site B returns a page with a hidden form that posts to web site A.  Since the browser will carry the user's cookie to web site A, web site B now can take any action on web site A, for example, adding an admin to an account.  The attack can be used to exploit any requests that the browser automatically authenticates, e.g. by session cookie, integrated authentication, IP whitelisting. The attack can be carried out in many ways such as by luring the victim to a site under control of the attacker, getting the user to click a link in a phishing email, or hacking a reputable web site that the victim will visit. The issue can only be resolved on the server side by requiring that all authenticated state-changing requests include an additional piece of secret payload (canary or CSRF token) which is known only to the legitimate web site and the browser and which is protected in transit through SSL/TLS. See the Forgery Protection property on the flow stencil for a list of mitigations.
+Justification:	<no mitigation provided>
+
+Interaction: Request For Log-In
+Request For Log-In interaction screenshot
+76. Spoofing the USER External Entity  [State: Not Started]  [Priority: High] 
+Category:	Spoofing
+Description:	USER may be spoofed by an attacker and this may lead to unauthorized access to Sign-In. Consider using a standard authentication mechanism to identify the external entity.
+Justification:	<no mitigation provided>
+77. Elevation Using Impersonation  [State: Not Started]  [Priority: High] 
+Category:	Elevation Of Privilege
+Description:	Sign-In may be able to impersonate the context of USER in order to gain additional privilege.
+Justification:	<no mitigation provided>
+78. Spoofing the Sign-In Process  [State: Not Started]  [Priority: High] 
+Category:	Spoofing
+Description:	Sign-In may be spoofed by an attacker and this may lead to information disclosure by USER. Consider using a standard authentication mechanism to identify the destination process.
+Justification:	<no mitigation provided>
+79. Potential Lack of Input Validation for Sign-In  [State: Not Started]  [Priority: High] 
+Category:	Tampering
+Description:	Data flowing across Request For Log-In may be tampered with by an attacker. This may lead to a denial of service attack against Sign-In or an elevation of privilege attack against Sign-In or an information disclosure by Sign-In. Failure to verify that input is as expected is a root cause of a very large number of exploitable issues. Consider all paths and the way they handle data. Verify that all input is verified for correctness using an approved list input validation approach.
+Justification:	<no mitigation provided>
+80. Potential Data Repudiation by Sign-In  [State: Not Started]  [Priority: High] 
+Category:	Repudiation
+Description:	Sign-In claims that it did not receive data from a source outside the trust boundary. Consider using logging or auditing to record the source, time, and summary of the received data.
+Justification:	<no mitigation provided>
+81. Potential Process Crash or Stop for Sign-In  [State: Not Started]  [Priority: High] 
+Category:	Denial Of Service
+Description:	Sign-In crashes, halts, stops or runs slowly; in all cases violating an availability metric.
+Justification:	<no mitigation provided>
+82. Data Flow Request For Log-In Is Potentially Interrupted  [State: Not Started]  [Priority: High] 
+Category:	Denial Of Service
+Description:	An external agent interrupts data flowing across a trust boundary in either direction.
+Justification:	<no mitigation provided>
+83. Sign-In May be Subject to Elevation of Privilege Using Remote Code Execution  [State: Not Started]  [Priority: High] 
+Category:	Elevation Of Privilege
+Description:	USER may be able to remotely execute code for Sign-In.
+Justification:	<no mitigation provided>
+84. Elevation by Changing the Execution Flow in Sign-In  [State: Not Started]  [Priority: High] 
+Category:	Elevation Of Privilege
+Description:	An attacker may pass data into Sign-In in order to change the flow of program execution within Sign-In to the attacker's choosing.
+Justification:	<no mitigation provided>
+
+Interaction: Request for Registration
+Request for Registration interaction screenshot
+85. Spoofing the USER External Entity  [State: Not Started]  [Priority: High] 
+Category:	Spoofing
+Description:	USER may be spoofed by an attacker and this may lead to unauthorized access to Register. Consider using a standard authentication mechanism to identify the external entity.
+Justification:	<no mitigation provided>
+86. Elevation Using Impersonation  [State: Not Started]  [Priority: High] 
+Category:	Elevation Of Privilege
+Description:	Register may be able to impersonate the context of USER in order to gain additional privilege.
+Justification:	<no mitigation provided>
+87. Cross Site Request Forgery  [State: Not Started]  [Priority: High] 
+Category:	Elevation Of Privilege
+Description:	Cross-site request forgery (CSRF or XSRF) is a type of attack in which an attacker forces a user's browser to make a forged request to a vulnerable site by exploiting an existing trust relationship between the browser and the vulnerable web site.  In a simple scenario, a user is logged in to web site A using a cookie as a credential.  The other browses to web site B.  Web site B returns a page with a hidden form that posts to web site A.  Since the browser will carry the user's cookie to web site A, web site B now can take any action on web site A, for example, adding an admin to an account.  The attack can be used to exploit any requests that the browser automatically authenticates, e.g. by session cookie, integrated authentication, IP whitelisting. The attack can be carried out in many ways such as by luring the victim to a site under control of the attacker, getting the user to click a link in a phishing email, or hacking a reputable web site that the victim will visit. The issue can only be resolved on the server side by requiring that all authenticated state-changing requests include an additional piece of secret payload (canary or CSRF token) which is known only to the legitimate web site and the browser and which is protected in transit through SSL/TLS. See the Forgery Protection property on the flow stencil for a list of mitigations.
+Justification:	<no mitigation provided>
+88. Elevation by Changing the Execution Flow in Register  [State: Not Started]  [Priority: High] 
+Category:	Elevation Of Privilege
+Description:	An attacker may pass data into Register in order to change the flow of program execution within Register to the attacker's choosing.
+Justification:	<no mitigation provided>
+89. Register May be Subject to Elevation of Privilege Using Remote Code Execution  [State: Not Started]  [Priority: High] 
+Category:	Elevation Of Privilege
+Description:	USER may be able to remotely execute code for Register.
+Justification:	<no mitigation provided>
+90. Data Flow Request for Registration Is Potentially Interrupted  [State: Not Started]  [Priority: High] 
+Category:	Denial Of Service
+Description:	An external agent interrupts data flowing across a trust boundary in either direction.
+Justification:	<no mitigation provided>
+91. Potential Process Crash or Stop for Register  [State: Not Started]  [Priority: High] 
+Category:	Denial Of Service
+Description:	Register crashes, halts, stops or runs slowly; in all cases violating an availability metric.
+Justification:	<no mitigation provided>
+92. Data Flow Sniffing  [State: Not Started]  [Priority: High] 
+Category:	Information Disclosure
+Description:	Data flowing across Request for Registration may be sniffed by an attacker. Depending on what type of data an attacker can read, it may be used to attack other parts of the system or simply be a disclosure of information leading to compliance violations. Consider encrypting the data flow.
+Justification:	<no mitigation provided>
+93. Potential Data Repudiation by Register  [State: Not Started]  [Priority: High] 
+Category:	Repudiation
+Description:	Register claims that it did not receive data from a source outside the trust boundary. Consider using logging or auditing to record the source, time, and summary of the received data.
+Justification:	<no mitigation provided>
+94. Potential Lack of Input Validation for Register  [State: Not Started]  [Priority: High] 
+Category:	Tampering
+Description:	Data flowing across Request for Registration may be tampered with by an attacker. This may lead to a denial of service attack against Register or an elevation of privilege attack against Register or an information disclosure by Register. Failure to verify that input is as expected is a root cause of a very large number of exploitable issues. Consider all paths and the way they handle data. Verify that all input is verified for correctness using an approved list input validation approach.
+Justification:	<no mitigation provided>
+95. Spoofing the Register Process  [State: Not Started]  [Priority: High] 
+Category:	Spoofing
+Description:	Register may be spoofed by an attacker and this may lead to information disclosure by USER. Consider using a standard authentication mechanism to identify the destination process.
+Justification:	<no mitigation provided>
+
+Interaction: Request Laundry service
+Request Laundry service interaction screenshot
+96. Authenticated Data Flow Compromised  [State: Not Started]  [Priority: High] 
+Category:	Tampering
+Description:	An attacker can read or modify data transmitted over an authenticated dataflow.
+Justification:	<no mitigation provided>
+97. Elevation Using Impersonation  [State: Not Started]  [Priority: High] 
+Category:	Elevation Of Privilege
+Description:	Place Laundry order may be able to impersonate the context of USER in order to gain additional privilege.
+Justification:	<no mitigation provided>
+98. Spoofing the Place Laundry order Process  [State: Not Started]  [Priority: High] 
+Category:	Spoofing
+Description:	Place Laundry order may be spoofed by an attacker and this may lead to information disclosure by USER. Consider using a standard authentication mechanism to identify the destination process.
+Justification:	<no mitigation provided>
+99. Potential Lack of Input Validation for Place Laundry order  [State: Not Started]  [Priority: High] 
+Category:	Tampering
+Description:	Data flowing across Request Laundry service may be tampered with by an attacker. This may lead to a denial of service attack against Place Laundry order or an elevation of privilege attack against Place Laundry order or an information disclosure by Place Laundry order. Failure to verify that input is as expected is a root cause of a very large number of exploitable issues. Consider all paths and the way they handle data. Verify that all input is verified for correctness using an approved list input validation approach.
+Justification:	<no mitigation provided>
+100. Potential Data Repudiation by Place Laundry order  [State: Not Started]  [Priority: High] 
+Category:	Repudiation
+Description:	Place Laundry order claims that it did not receive data from a source outside the trust boundary. Consider using logging or auditing to record the source, time, and summary of the received data.
+Justification:	<no mitigation provided>
+101. Data Flow Sniffing  [State: Not Started]  [Priority: High] 
+Category:	Information Disclosure
+Description:	Data flowing across Request Laundry service may be sniffed by an attacker. Depending on what type of data an attacker can read, it may be used to attack other parts of the system or simply be a disclosure of information leading to compliance violations. Consider encrypting the data flow.
+Justification:	<no mitigation provided>
+102. Potential Process Crash or Stop for Place Laundry order  [State: Not Started]  [Priority: High] 
+Category:	Denial Of Service
+Description:	Place Laundry order crashes, halts, stops or runs slowly; in all cases violating an availability metric.
+Justification:	<no mitigation provided>
+103. Data Flow Request Laundry service Is Potentially Interrupted  [State: Not Started]  [Priority: High] 
+Category:	Denial Of Service
+Description:	An external agent interrupts data flowing across a trust boundary in either direction.
+Justification:	<no mitigation provided>
+104. Place Laundry order May be Subject to Elevation of Privilege Using Remote Code Execution  [State: Not Started]  [Priority: High] 
+Category:	Elevation Of Privilege
+Description:	USER may be able to remotely execute code for Place Laundry order.
+Justification:	<no mitigation provided>
+105. Elevation by Changing the Execution Flow in Place Laundry order  [State: Not Started]  [Priority: High] 
+Category:	Elevation Of Privilege
+Description:	An attacker may pass data into Place Laundry order in order to change the flow of program execution within Place Laundry order to the attacker's choosing.
+Justification:	<no mitigation provided>
+106. Cross Site Request Forgery  [State: Not Started]  [Priority: High] 
+Category:	Elevation Of Privilege
+Description:	Cross-site request forgery (CSRF or XSRF) is a type of attack in which an attacker forces a user's browser to make a forged request to a vulnerable site by exploiting an existing trust relationship between the browser and the vulnerable web site.  In a simple scenario, a user is logged in to web site A using a cookie as a credential.  The other browses to web site B.  Web site B returns a page with a hidden form that posts to web site A.  Since the browser will carry the user's cookie to web site A, web site B now can take any action on web site A, for example, adding an admin to an account.  The attack can be used to exploit any requests that the browser automatically authenticates, e.g. by session cookie, integrated authentication, IP whitelisting. The attack can be carried out in many ways such as by luring the victim to a site under control of the attacker, getting the user to click a link in a phishing email, or hacking a reputable web site that the victim will visit. The issue can only be resolved on the server side by requiring that all authenticated state-changing requests include an additional piece of secret payload (canary or CSRF token) which is known only to the legitimate web site and the browser and which is protected in transit through SSL/TLS. See the Forgery Protection property on the flow stencil for a list of mitigations.
+Justification:	<no mitigation provided>
+
+Interaction: Request Previous orders
+Request Previous orders interaction screenshot
+107. Cross Site Scripting  [State: Not Started]  [Priority: High] 
+Category:	Tampering
+Description:	The web server 'Web Server daztabase communictation' could be a subject to a cross-site scripting attack because it does not sanitize untrusted input.
+Justification:	<no mitigation provided>
+108. Elevation Using Impersonation  [State: Not Started]  [Priority: High] 
+Category:	Elevation Of Privilege
+Description:	Web Server daztabase communictation may be able to impersonate the context of Place Laundry order in order to gain additional privilege.
+Justification:	<no mitigation provided>
+
+Interaction: Response
+Response interaction screenshot
+109. Spoofing of Source Data Store users_db  [State: Not Started]  [Priority: High] 
+Category:	Spoofing
+Description:	users_db may be spoofed by an attacker and this may lead to incorrect data delivered to Sign-In. Consider using a standard authentication mechanism to identify the source data store.
+Justification:	<no mitigation provided>
+110. Weak Access Control for a Resource  [State: Not Started]  [Priority: High] 
+Category:	Information Disclosure
+Description:	Improper data protection of users_db can allow an attacker to read information not intended for disclosure. Review authorization settings.
+Justification:	<no mitigation provided>
+111. Spoofing the Sign-In Process  [State: Not Started]  [Priority: High] 
+Category:	Spoofing
+Description:	Sign-In may be spoofed by an attacker and this may lead to information disclosure by users_db. Consider using a standard authentication mechanism to identify the destination process.
+Justification:	<no mitigation provided>
+112. Potential Data Repudiation by Sign-In  [State: Not Started]  [Priority: High] 
+Category:	Repudiation
+Description:	Sign-In claims that it did not receive data from a source outside the trust boundary. Consider using logging or auditing to record the source, time, and summary of the received data.
+Justification:	<no mitigation provided>
+113. Potential Process Crash or Stop for Sign-In  [State: Not Started]  [Priority: High] 
+Category:	Denial Of Service
+Description:	Sign-In crashes, halts, stops or runs slowly; in all cases violating an availability metric.
+Justification:	<no mitigation provided>
+114. Data Flow Response Is Potentially Interrupted  [State: Not Started]  [Priority: High] 
+Category:	Denial Of Service
+Description:	An external agent interrupts data flowing across a trust boundary in either direction.
+Justification:	<no mitigation provided>
+115. Data Store Inaccessible  [State: Not Started]  [Priority: High] 
+Category:	Denial Of Service
+Description:	An external agent prevents access to a data store on the other side of the trust boundary.
+Justification:	<no mitigation provided>
+116. Sign-In May be Subject to Elevation of Privilege Using Remote Code Execution  [State: Not Started]  [Priority: High] 
+Category:	Elevation Of Privilege
+Description:	users_db may be able to remotely execute code for Sign-In.
+Justification:	<no mitigation provided>
+117. Elevation by Changing the Execution Flow in Sign-In  [State: Not Started]  [Priority: High] 
+Category:	Elevation Of Privilege
+Description:	An attacker may pass data into Sign-In in order to change the flow of program execution within Sign-In to the attacker's choosing.
+Justification:	<no mitigation provided>
+
+Interaction: Response
+Response interaction screenshot
+118. Spoofing of Source Data Store users_db  [State: Not Started]  [Priority: High] 
+Category:	Spoofing
+Description:	users_db may be spoofed by an attacker and this may lead to incorrect data delivered to Register. Consider using a standard authentication mechanism to identify the source data store.
+Justification:	<no mitigation provided>
+119. Weak Access Control for a Resource  [State: Not Started]  [Priority: High] 
+Category:	Information Disclosure
+Description:	Improper data protection of users_db can allow an attacker to read information not intended for disclosure. Review authorization settings.
+Justification:	<no mitigation provided>
+120. Spoofing the Register Process  [State: Not Started]  [Priority: High] 
+Category:	Spoofing
+Description:	Register may be spoofed by an attacker and this may lead to information disclosure by users_db. Consider using a standard authentication mechanism to identify the destination process.
+Justification:	<no mitigation provided>
+121. Potential Data Repudiation by Register  [State: Not Started]  [Priority: High] 
+Category:	Repudiation
+Description:	Register claims that it did not receive data from a source outside the trust boundary. Consider using logging or auditing to record the source, time, and summary of the received data.
+Justification:	<no mitigation provided>
+122. Potential Process Crash or Stop for Register  [State: Not Started]  [Priority: High] 
+Category:	Denial Of Service
+Description:	Register crashes, halts, stops or runs slowly; in all cases violating an availability metric.
+Justification:	<no mitigation provided>
+123. Data Flow Response Is Potentially Interrupted  [State: Not Started]  [Priority: High] 
+Category:	Denial Of Service
+Description:	An external agent interrupts data flowing across a trust boundary in either direction.
+Justification:	<no mitigation provided>
+124. Data Store Inaccessible  [State: Not Started]  [Priority: High] 
+Category:	Denial Of Service
+Description:	An external agent prevents access to a data store on the other side of the trust boundary.
+Justification:	<no mitigation provided>
+125. Register May be Subject to Elevation of Privilege Using Remote Code Execution  [State: Not Started]  [Priority: High] 
+Category:	Elevation Of Privilege
+Description:	users_db may be able to remotely execute code for Register.
+Justification:	<no mitigation provided>
+126. Elevation by Changing the Execution Flow in Register  [State: Not Started]  [Priority: High] 
+Category:	Elevation Of Privilege
+Description:	An attacker may pass data into Register in order to change the flow of program execution within Register to the attacker's choosing.
+Justification:	<no mitigation provided>
+
+Interaction: Response (success or fail)
+Response (success or fail) interaction screenshot
+127. Spoofing of Source Data Store users_db  [State: Not Started]  [Priority: High] 
+Category:	Spoofing
+Description:	users_db may be spoofed by an attacker and this may lead to incorrect data delivered to resetPassword. Consider using a standard authentication mechanism to identify the source data store.
+Justification:	<no mitigation provided>
+128. Weak Access Control for a Resource  [State: Not Started]  [Priority: High] 
+Category:	Information Disclosure
+Description:	Improper data protection of users_db can allow an attacker to read information not intended for disclosure. Review authorization settings.
+Justification:	<no mitigation provided>
+129. Spoofing the resetPassword Process  [State: Not Started]  [Priority: High] 
+Category:	Spoofing
+Description:	resetPassword may be spoofed by an attacker and this may lead to information disclosure by users_db. Consider using a standard authentication mechanism to identify the destination process.
+Justification:	<no mitigation provided>
+130. Potential Data Repudiation by resetPassword  [State: Not Started]  [Priority: High] 
+Category:	Repudiation
+Description:	resetPassword claims that it did not receive data from a source outside the trust boundary. Consider using logging or auditing to record the source, time, and summary of the received data.
+Justification:	<no mitigation provided>
+131. Potential Process Crash or Stop for resetPassword  [State: Not Started]  [Priority: High] 
+Category:	Denial Of Service
+Description:	resetPassword crashes, halts, stops or runs slowly; in all cases violating an availability metric.
+Justification:	<no mitigation provided>
+132. Data Flow Response (success or fail) Is Potentially Interrupted  [State: Not Started]  [Priority: High] 
+Category:	Denial Of Service
+Description:	An external agent interrupts data flowing across a trust boundary in either direction.
+Justification:	<no mitigation provided>
+133. Data Store Inaccessible  [State: Not Started]  [Priority: High] 
+Category:	Denial Of Service
+Description:	An external agent prevents access to a data store on the other side of the trust boundary.
+Justification:	<no mitigation provided>
+134. resetPassword May be Subject to Elevation of Privilege Using Remote Code Execution  [State: Not Started]  [Priority: High] 
+Category:	Elevation Of Privilege
+Description:	users_db may be able to remotely execute code for resetPassword.
+Justification:	<no mitigation provided>
+135. Elevation by Changing the Execution Flow in resetPassword  [State: Not Started]  [Priority: High] 
+Category:	Elevation Of Privilege
+Description:	An attacker may pass data into resetPassword in order to change the flow of program execution within resetPassword to the attacker's choosing.
+Justification:	<no mitigation provided>
+
+Interaction: Response (success or fail)
+Response (success or fail) interaction screenshot
+136. Data Flow Response (success or fail) Is Potentially Interrupted  [State: Not Started]  [Priority: High] 
+Category:	Denial Of Service
+Description:	An external agent interrupts data flowing across a trust boundary in either direction.
+Justification:	<no mitigation provided>
+137. External Entity USER Potentially Denies Receiving Data  [State: Not Started]  [Priority: High] 
+Category:	Repudiation
+Description:	USER claims that it did not receive data from a process on the other side of the trust boundary. Consider using logging or auditing to record the source, time, and summary of the received data.
+Justification:	<no mitigation provided>
+138. Spoofing of the USER External Destination Entity  [State: Not Started]  [Priority: High] 
+Category:	Spoofing
+Description:	USER may be spoofed by an attacker and this may lead to data being sent to the attacker's target instead of USER. Consider using a standard authentication mechanism to identify the external entity.
+Justification:	<no mitigation provided>
+
+Interaction: Response (Success or fail)
+Response (Success or fail) interaction screenshot
+139. Spoofing of the USER External Destination Entity  [State: Not Started]  [Priority: High] 
+Category:	Spoofing
+Description:	USER may be spoofed by an attacker and this may lead to data being sent to the attacker's target instead of USER. Consider using a standard authentication mechanism to identify the external entity.
+Justification:	<no mitigation provided>
+140. External Entity USER Potentially Denies Receiving Data  [State: Not Started]  [Priority: High] 
+Category:	Repudiation
+Description:	USER claims that it did not receive data from a process on the other side of the trust boundary. Consider using logging or auditing to record the source, time, and summary of the received data.
+Justification:	<no mitigation provided>
+141. Data Flow Response (Success or fail) Is Potentially Interrupted  [State: Not Started]  [Priority: High] 
+Category:	Denial Of Service
+Description:	An external agent interrupts data flowing across a trust boundary in either direction.
+Justification:	<no mitigation provided>
+
+Interaction: Session + user data terminates
+Session + user data terminates interaction screenshot
+142. Spoofing of Source Data Store Cookies  [State: Not Started]  [Priority: High] 
+Category:	Spoofing
+Description:	Cookies may be spoofed by an attacker and this may lead to incorrect data delivered to Log_out. Consider using a standard authentication mechanism to identify the source data store.
+Justification:	<no mitigation provided>
+143. Weak Access Control for a Resource  [State: Not Started]  [Priority: High] 
+Category:	Information Disclosure
+Description:	Improper data protection of Cookies can allow an attacker to read information not intended for disclosure. Review authorization settings.
+Justification:	<no mitigation provided>
+
+Interaction: submit order quantity
+submit order quantity interaction screenshot
+144. Spoofing of Source Data Store users_db  [State: Not Started]  [Priority: High] 
+Category:	Spoofing
+Description:	users_db may be spoofed by an attacker and this may lead to incorrect data delivered to OrderService_db. Consider using a standard authentication mechanism to identify the source data store.
+Justification:	<no mitigation provided>
+145. Spoofing of Destination Data Store OrderService_db  [State: Not Started]  [Priority: High] 
+Category:	Spoofing
+Description:	OrderService_db may be spoofed by an attacker and this may lead to data being written to the attacker's target instead of OrderService_db. Consider using a standard authentication mechanism to identify the destination data store.
+Justification:	<no mitigation provided>
+146. Data Store Denies OrderService_db Potentially Writing Data  [State: Not Started]  [Priority: High] 
+Category:	Repudiation
+Description:	OrderService_db claims that it did not write data received from an entity on the other side of the trust boundary. Consider using logging or auditing to record the source, time, and summary of the received data.
+Justification:	<no mitigation provided>
+147. Data Flow submit order quantity Is Potentially Interrupted  [State: Not Started]  [Priority: High] 
+Category:	Denial Of Service
+Description:	An external agent interrupts data flowing across a trust boundary in either direction.
+Justification:	<no mitigation provided>
+148. Data Store Inaccessible  [State: Not Started]  [Priority: High] 
+Category:	Denial Of Service
+Description:	An external agent prevents access to a data store on the other side of the trust boundary.
+Justification:	<no mitigation provided>
+
+Interaction: Submit order service type
+Submit order service type interaction screenshot
+149. Spoofing of Source Data Store users_db  [State: Not Started]  [Priority: High] 
+Category:	Spoofing
+Description:	users_db may be spoofed by an attacker and this may lead to incorrect data delivered to OrderService_db. Consider using a standard authentication mechanism to identify the source data store.
+Justification:	<no mitigation provided>
+150. Spoofing of Destination Data Store OrderService_db  [State: Not Started]  [Priority: High] 
+Category:	Spoofing
+Description:	OrderService_db may be spoofed by an attacker and this may lead to data being written to the attacker's target instead of OrderService_db. Consider using a standard authentication mechanism to identify the destination data store.
+Justification:	<no mitigation provided>
+151. Data Store Denies OrderService_db Potentially Writing Data  [State: Not Started]  [Priority: High] 
+Category:	Repudiation
+Description:	OrderService_db claims that it did not write data received from an entity on the other side of the trust boundary. Consider using logging or auditing to record the source, time, and summary of the received data.
+Justification:	<no mitigation provided>
+152. Data Flow Submit order service type Is Potentially Interrupted  [State: Not Started]  [Priority: High] 
+Category:	Denial Of Service
+Description:	An external agent interrupts data flowing across a trust boundary in either direction.
+Justification:	<no mitigation provided>
+153. Data Store Inaccessible  [State: Not Started]  [Priority: High] 
+Category:	Denial Of Service
+Description:	An external agent prevents access to a data store on the other side of the trust boundary.
+Justification:	<no mitigation provided>
+
+Interaction: Update User Password
+Update User Password interaction screenshot
+154. Potential SQL Injection Vulnerability for users_db  [State: Not Started]  [Priority: High] 
+Category:	Tampering
+Description:	SQL injection is an attack in which malicious code is inserted into strings that are later passed to an instance of SQL Server for parsing and execution. Any procedure that constructs SQL statements should be reviewed for injection vulnerabilities because SQL Server will execute all syntactically valid queries that it receives. Even parameterized data can be manipulated by a skilled and determined attacker.
+Justification:	<no mitigation provided>
+155. Spoofing of Destination Data Store users_db  [State: Not Started]  [Priority: High] 
+Category:	Spoofing
+Description:	users_db may be spoofed by an attacker and this may lead to data being written to the attacker's target instead of users_db. Consider using a standard authentication mechanism to identify the destination data store.
+Justification:	<no mitigation provided>
+156. Authorization Bypass  [State: Not Started]  [Priority: High] 
+Category:	Information Disclosure
+Description:	Can you access users_db and bypass the permissions for the object? For example by editing the files directly with a hex editor, or reaching it via filesharing? Ensure that your program is the only one that can access the data, and that all other subjects have to use your interface.
+Justification:	<no mitigation provided>
+157. Weak Credential Storage  [State: Not Started]  [Priority: High] 
+Category:	Information Disclosure
+Description:	Credentials held at the server are often disclosed or tampered with and credentials stored on the client are often stolen. For server side, consider storing a salted hash of the credentials instead of storing the credentials themselves. If this is not possible due to business requirements, be sure to encrypt the credentials before storage, using an SDL-approved mechanism. For client side, if storing credentials is required, encrypt them and protect the data store in which they're stored
+Justification:	<no mitigation provided>
+158. Potential Excessive Resource Consumption for resetPassword or users_db  [State: Not Started]  [Priority: High] 
+Category:	Denial Of Service
+Description:	Does resetPassword or users_db take explicit steps to control resource consumption? Resource consumption attacks can be hard to deal with, and there are times that it makes sense to let the OS do the job. Be careful that your resource requests don't deadlock, and that they do timeout.
+Justification:	<no mitigation provided>
+159. The users_db Data Store Could Be Corrupted  [State: Not Started]  [Priority: High] 
+Category:	Tampering
+Description:	Data flowing across Update User Password may be tampered with by an attacker. This may lead to corruption of users_db. Ensure the integrity of the data flow to the data store.
+Justification:	<no mitigation provided>
+160. Data Store Denies users_db Potentially Writing Data  [State: Not Started]  [Priority: High] 
+Category:	Repudiation
+Description:	users_db claims that it did not write data received from an entity on the other side of the trust boundary. Consider using logging or auditing to record the source, time, and summary of the received data.
+Justification:	<no mitigation provided>
+161. Data Flow Update User Password Is Potentially Interrupted  [State: Not Started]  [Priority: High] 
+Category:	Denial Of Service
+Description:	An external agent interrupts data flowing across a trust boundary in either direction.
+Justification:	<no mitigation provided>
+162. Data Store Inaccessible  [State: Not Started]  [Priority: High] 
+Category:	Denial Of Service
+Description:	An external agent prevents access to a data store on the other side of the trust boundary.
+Justification:	<no mitigation provided>
+
+Interaction: User authentication details
+User authentication details interaction screenshot
+163. Spoofing of Destination Data Store Cookies  [State: Not Started]  [Priority: High] 
+Category:	Spoofing
+Description:	Cookies may be spoofed by an attacker and this may lead to data being written to the attacker's target instead of Cookies. Consider using a standard authentication mechanism to identify the destination data store.
+Justification:	<no mitigation provided>
+164. Potential Excessive Resource Consumption for Sign-In or Cookies  [State: Not Started]  [Priority: High] 
+Category:	Denial Of Service
+Description:	Does Sign-In or Cookies take explicit steps to control resource consumption? Resource consumption attacks can be hard to deal with, and there are times that it makes sense to let the OS do the job. Be careful that your resource requests don't deadlock, and that they do timeout.
+Justification:	<no mitigation provided>
+165. The Cookies Data Store Could Be Corrupted  [State: Not Started]  [Priority: High] 
+Category:	Tampering
+Description:	Data flowing across User authentication details may be tampered with by an attacker. This may lead to corruption of Cookies. Ensure the integrity of the data flow to the data store.
+Justification:	<no mitigation provided>
+166. Data Store Denies Cookies Potentially Writing Data  [State: Not Started]  [Priority: High] 
+Category:	Repudiation
+Description:	Cookies claims that it did not write data received from an entity on the other side of the trust boundary. Consider using logging or auditing to record the source, time, and summary of the received data.
+Justification:	<no mitigation provided>
+167. Data Flow User authentication details Is Potentially Interrupted  [State: Not Started]  [Priority: High] 
+Category:	Denial Of Service
+Description:	An external agent interrupts data flowing across a trust boundary in either direction.
+Justification:	<no mitigation provided>
+168. Data Store Inaccessible  [State: Not Started]  [Priority: High] 
+Category:	Denial Of Service
+Description:	An external agent prevents access to a data store on the other side of the trust boundary.
+Justification:	<no mitigation provided>
